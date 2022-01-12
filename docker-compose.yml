@@ -19,6 +19,7 @@ services:
       - "MYSQL_DATABASE=misp"
     volumes:
       - mysql_data:/var/lib/mysql
+      - misp_logs:/var/www/MISP/app/tmp/logs/
     cap_add:
       - SYS_NICE  # CAP_SYS_NICE Prevent runaway mysql log
 
@@ -70,3 +71,4 @@ services:
 
 volumes:
     mysql_data:
+    misp_logs:
