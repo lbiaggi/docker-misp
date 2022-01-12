@@ -9,7 +9,7 @@ services:
     image: redis:5.0.6
 
   db:
-    image: mysql:8.0.19
+    image: mariadb:10.3.32
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
