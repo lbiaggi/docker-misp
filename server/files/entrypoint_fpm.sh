@@ -8,6 +8,9 @@ change_php_vars(){
         sed -i "s/max_execution_time = .*/max_execution_time = $PHP_MAX_EXECUTION_TIME/" "$FILE"
         sed -i "s/upload_max_filesize = .*/upload_max_filesize = $PHP_UPLOAD_MAX_FILESIZE/" "$FILE"
         sed -i "s/post_max_size = .*/post_max_size = $PHP_POST_MAX_SIZE/" "$FILE"
+        sed -i "s/session.save_handler = .*/session.save_handler = redis/" "$FILE"
+        sed -i "s#session.save_path = .*#session.save_path = \"tcp://$REDIS_FQDN:$REDIS_PORT\"#" "$FILE"
+
     done
 }
 
